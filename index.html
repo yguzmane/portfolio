@@ -1,0 +1,1298 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yashub Guzman - Desarrollador de Sistemas Web</title>
+    <meta
+      name="description"
+      content="Desarrollador de Sistemas Web (Backend & Arquitectura). Desarrollo de sistemas web completos, automatizados y listos para producción."
+    />
+
+    <link
+      href="./assets/fonts.css"
+      rel="stylesheet"
+    />
+
+    <script src="./assets/tailwind-cdn.js"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Plus Jakarta Sans", "ui-sans-serif", "system-ui", "sans-serif"],
+              mono: ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "monospace"],
+            },
+            boxShadow: {
+              "brand": "0 10px 30px rgba(2, 132, 199, 0.18)",
+            },
+            colors: {
+              brand: {
+                50: "#E0F7FF",
+                100: "#B7EEFF",
+                200: "#7FDBFF",
+                300: "#3BCBFF",
+                400: "#12B8F0",
+                500: "#0891B2",
+                600: "#06708A",
+                700: "#05586E",
+                800: "#044A5A",
+                900: "#023A46",
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* Pequenita capa "grain" usando SVG embebido para un look SaaS minimalista */
+      .grain::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+        mix-blend-mode: overlay;
+        opacity: 0.35;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 700ms ease, transform 700ms ease;
+      }
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto !important;
+        }
+        .reveal {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+        }
+        .hover-lift {
+          transform: none !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="font-sans bg-white text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-brand-500 focus:px-3 focus:py-2 focus:text-white"
+    >
+      Saltar al contenido
+    </a>
+
+    <!-- Header -->
+    <header
+      class="fixed left-0 right-0 top-0 z-40 border-b border-slate-200/70 bg-white/75 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:border-slate-800/70 dark:bg-slate-950/70"
+    >
+      <div class="mx-auto max-w-6xl px-4 py-3 sm:px-6 relative">
+        <div class="flex items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-500 text-white shadow-brand">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M7 7h10v10H7V7Z"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M4 10V6a2 2 0 0 1 2-2h4M20 14v4a2 2 0 0 1-2 2h-4M14 4h4a2 2 0 0 1 2 2v4M10 20H6a2 2 0 0 1-2-2v-4"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </span>
+            <div class="leading-tight">
+              <div class="font-semibold text-slate-900 dark:text-slate-100">Yashub Guzman</div>
+              <div class="text-xs text-slate-600 dark:text-slate-400">Web Systems • Backend & Arquitectura</div>
+            </div>
+          </div>
+
+          <nav class="hidden items-center gap-6 md:flex" aria-label="Secciones">
+            <a class="text-sm text-slate-700 hover:text-brand-500 dark:text-slate-300 dark:hover:text-brand-300" href="#sobre-mi">Sobre mi</a>
+            <a class="text-sm text-slate-700 hover:text-brand-500 dark:text-slate-300 dark:hover:text-brand-300" href="#especializacion">Especialización</a>
+            <a class="text-sm text-slate-700 hover:text-brand-500 dark:text-slate-300 dark:hover:text-brand-300" href="#stack">Stack</a>
+            <a class="text-sm text-slate-700 hover:text-brand-500 dark:text-slate-300 dark:hover:text-brand-300" href="#proyecto">Proyecto</a>
+            <a class="text-sm text-slate-700 hover:text-brand-500 dark:text-slate-300 dark:hover:text-brand-300" href="#experiencia">Experiencia</a>
+            <a class="text-sm text-slate-700 hover:text-brand-500 dark:text-slate-300 dark:hover:text-brand-300" href="#contacto">Contacto</a>
+          </nav>
+
+          <div class="flex items-center gap-2">
+            <!-- Mobile menu toggle -->
+            <button
+              id="mobile-menu-toggle"
+              type="button"
+              class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white/60 text-slate-800 transition hover:border-brand-500 hover:bg-brand-50 dark:border-slate-800 dark:bg-slate-900/40 dark:text-slate-100 dark:hover:bg-slate-900 md:hidden"
+              aria-label="Abrir menu"
+              aria-expanded="false"
+              aria-controls="mobile-menu"
+              title="Menu"
+            >
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+              </svg>
+            </button>
+
+            <!-- Dark mode toggle -->
+            <button
+              id="theme-toggle"
+              type="button"
+              class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white/60 text-slate-800 transition hover:border-brand-500 hover:bg-brand-50 dark:border-slate-800 dark:bg-slate-900/40 dark:text-slate-100 dark:hover:bg-slate-900"
+              aria-label="Alternar modo oscuro"
+              aria-pressed="false"
+              title="Modo oscuro"
+            >
+              <svg id="icon-sun" class="hidden h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z" stroke="currentColor" stroke-width="1.8" />
+                <path
+                  d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <svg id="icon-moon" class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M21 14.5A8.5 8.5 0 0 1 9.5 3a7 7 0 1 0 11.5 11.5Z"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+
+            <a
+              href="#contacto"
+              class="hidden rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800 dark:bg-white/10 dark:hover:bg-white/15 md:inline-flex"
+            >
+              Contratar
+            </a>
+          </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div
+          id="mobile-menu"
+          class="pointer-events-none absolute left-0 right-0 top-full mt-3 max-h-0 overflow-hidden rounded-3xl border border-slate-200/70 bg-white/90 backdrop-blur shadow-lg opacity-0 translate-y-2 transition-all duration-200 ease-out dark:border-slate-800/70 dark:bg-slate-950/90"
+        >
+          <div class="p-3">
+            <div class="flex flex-col gap-1">
+              <a class="mobile-link rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-brand-500/10 dark:text-slate-100" href="#sobre-mi">Sobre mi</a>
+              <a class="mobile-link rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-brand-500/10 dark:text-slate-100" href="#especializacion">Especialización</a>
+              <a class="mobile-link rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-brand-500/10 dark:text-slate-100" href="#stack">Stack</a>
+              <a class="mobile-link rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-brand-500/10 dark:text-slate-100" href="#proyecto">Proyecto</a>
+              <a class="mobile-link rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-brand-500/10 dark:text-slate-100" href="#experiencia">Experiencia</a>
+              <a class="mobile-link rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-brand-500/10 dark:text-slate-100" href="#contacto">Contacto</a>
+              <a
+                href="#contacto"
+                class="mt-2 inline-flex items-center justify-center rounded-2xl bg-brand-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-600"
+              >
+                Contratar
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main id="main">
+      <!-- HERO -->
+      <section class="relative overflow-hidden grain pt-24">
+        <div class="absolute inset-0 -z-10">
+          <div class="absolute -top-40 left-1/2 h-[520px] w-[900px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-brand-200/40 via-brand-300/20 to-transparent blur-2xl"></div>
+          <div class="absolute top-24 -left-24 h-64 w-64 rounded-full bg-gradient-to-br from-sky-400/25 to-transparent blur-2xl"></div>
+          <div class="absolute bottom-10 -right-24 h-72 w-72 rounded-full bg-gradient-to-br from-cyan-400/20 to-transparent blur-2xl"></div>
+        </div>
+
+        <div class="mx-auto max-w-6xl px-4 pb-16 sm:px-6 sm:pb-20">
+          <div class="grid items-center gap-10 lg:grid-cols-12">
+            <div class="lg:col-span-7 reveal">
+              <div class="inline-flex items-center gap-2 rounded-full border border-slate-200/70 bg-white/60 px-4 py-2 text-sm text-slate-700 backdrop-blur dark:border-slate-800/70 dark:bg-slate-900/30 dark:text-slate-300">
+                <span class="inline-flex h-2 w-2 rounded-full bg-brand-500"></span>
+                Disponible para proyectos de sistemas web
+              </div>
+
+              <h1 class="mt-6 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+                Yashub Armando Guzman Espinoza
+              </h1>
+              <p class="mt-4 text-lg text-slate-700 dark:text-slate-300">
+                Desarrollador de Sistemas Web | <span class="font-semibold text-slate-900 dark:text-white">Backend & Arquitectura</span>
+              </p>
+
+              <p class="mt-5 max-w-2xl text-base leading-relaxed text-slate-700 dark:text-slate-300 sm:text-lg">
+                Desarrollo sistemas web completos, automatizados y listos para producción
+              </p>
+
+              <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <a
+                  href="#proyecto"
+                  class="inline-flex items-center justify-center rounded-2xl bg-brand-500 px-6 py-3 text-sm font-semibold text-white shadow-brand transition hover:bg-brand-600 hover:-translate-y-0.5"
+                >
+                  Ver proyectos
+                </a>
+                <a
+                  href="#contacto"
+                  class="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white/60 px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-brand-500 hover:bg-white dark:border-slate-800 dark:bg-slate-900/30 dark:text-slate-100 dark:hover:bg-slate-900"
+                >
+                  Contacto
+                </a>
+              </div>
+
+              <div class="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                <div class="rounded-2xl border border-slate-200/70 bg-white/60 p-4 backdrop-blur dark:border-slate-800/70 dark:bg-slate-900/30">
+                  <div class="font-mono text-sm text-brand-600 dark:text-brand-300">
+                    <span id="experience-years-plus">4+ años</span>
+                  </div>
+                  <div class="mt-1 text-sm text-slate-700 dark:text-slate-300">Experiencia en producción</div>
+                </div>
+                <div class="rounded-2xl border border-slate-200/70 bg-white/60 p-4 backdrop-blur dark:border-slate-800/70 dark:bg-slate-900/30">
+                  <div class="font-mono text-sm text-brand-600 dark:text-brand-300">Full Stack</div>
+                  <div class="mt-1 text-sm text-slate-700 dark:text-slate-300">Backend + arquitectura</div>
+                </div>
+                <div class="rounded-2xl border border-slate-200/70 bg-white/60 p-4 backdrop-blur dark:border-slate-800/70 dark:bg-slate-900/30">
+                  <div class="font-mono text-sm text-brand-600 dark:text-brand-300">Ops</div>
+                  <div class="mt-1 text-sm text-slate-700 dark:text-slate-300">Linux, BD, despliegues</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 reveal">
+              <div class="relative rounded-3xl border border-slate-200/70 bg-white/60 p-6 shadow-[0_30px_80px_rgba(2,132,199,0.10)] backdrop-blur dark:border-slate-800/70 dark:bg-slate-900/30">
+                <div class="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-brand-500/15 blur-xl"></div>
+                <div class="absolute -left-7 -bottom-7 h-20 w-20 rounded-full bg-cyan-400/15 blur-xl"></div>
+
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <div class="text-sm font-semibold text-slate-900 dark:text-white">Enfoque</div>
+                    <div class="mt-1 text-sm text-slate-600 dark:text-slate-400">Sistemas web listos para operar</div>
+                  </div>
+                  <span class="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white/70 px-3 py-2 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">
+                    <svg class="h-4 w-4 text-brand-500" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M12 2v4M12 18v4M4 12H0M24 12h-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                      <path d="M7.1 7.1 4.3 4.3M19.7 19.7l-2.8-2.8M16.9 7.1l2.8-2.8M4.3 19.7l2.8-2.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                      <path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z" stroke="currentColor" stroke-width="1.8" />
+                    </svg>
+                    Producción
+                  </span>
+                </div>
+
+                <div class="mt-5 grid gap-3">
+                  <div class="flex items-start gap-3 rounded-2xl border border-slate-200/70 bg-white/60 p-4 dark:border-slate-800/70 dark:bg-slate-950/20">
+                    <div class="mt-1 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path
+                          d="M4 7h16M4 12h16M4 17h10"
+                          stroke="currentColor"
+                          stroke-width="1.8"
+                          stroke-linecap="round"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="text-sm font-semibold">Arquitectura clara</div>
+                      <div class="mt-1 text-sm text-slate-700 dark:text-slate-300">Modular, mantenible y escalable</div>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-3 rounded-2xl border border-slate-200/70 bg-white/60 p-4 dark:border-slate-800/70 dark:bg-slate-950/20">
+                    <div class="mt-1 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path
+                          d="M12 2 4 6v12l8 4 8-4V6l-8-4Z"
+                          stroke="currentColor"
+                          stroke-width="1.8"
+                          stroke-linejoin="round"
+                        />
+                        <path d="M12 22V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                        <path d="M20 6 12 10 4 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="text-sm font-semibold">Automatización</div>
+                      <div class="mt-1 text-sm text-slate-700 dark:text-slate-300">Flujos que reducen tiempos operativos</div>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start gap-3 rounded-2xl border border-slate-200/70 bg-white/60 p-4 dark:border-slate-800/70 dark:bg-slate-950/20">
+                    <div class="mt-1 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path
+                          d="M7 17 17 7"
+                          stroke="currentColor"
+                          stroke-width="1.8"
+                          stroke-linecap="round"
+                        />
+                        <path
+                          d="M9 7h8v8"
+                          stroke="currentColor"
+                          stroke-width="1.8"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M7 9v8h8"
+                          stroke="currentColor"
+                          stroke-width="1.8"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="text-sm font-semibold">Integración con servicios</div>
+                      <div class="mt-1 text-sm text-slate-700 dark:text-slate-300">APIs REST y web services externos</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-6 rounded-2xl bg-brand-500/5 p-4 border border-brand-500/15">
+                  <div class="flex items-center justify-between gap-4">
+                    <div class="min-w-0">
+                      <div class="text-sm font-semibold">Listo para reclutadores</div>
+                      <div class="mt-1 text-sm text-slate-700 dark:text-slate-300">
+                        Enfoque en impacto: producción, automatización y calidad operativa.
+                      </div>
+                    </div>
+                    <span class="inline-flex shrink-0 rounded-xl bg-white/70 px-3 py-2 text-xs font-semibold text-slate-900 dark:bg-slate-950/40 dark:text-slate-200">
+                      <span class="font-mono">SIISU</span> + sistemas
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SOBRE MI -->
+      <section id="sobre-mi" class="relative py-16 sm:py-20">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+          <div class="reveal">
+            <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Sobre mi</h2>
+            <p class="mt-3 max-w-3xl text-slate-700 dark:text-slate-300">
+              Desarrollador con <span id="experience-years">4</span> años de experiencia creando y manteniendo sistemas web en producción.
+              Especializado en automatización de procesos, integración con servicios externos y administración de infraestructura.
+            </p>
+          </div>
+
+          <div class="mt-8 grid gap-6 lg:grid-cols-12">
+            <div class="lg:col-span-7 reveal">
+              <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+                He trabajado en un sistema integral universitario que gestiona todo el ciclo de vida de un estudiante, desde aspirante hasta egresado,
+                incluyendo procesos académicos, administrativos y financieros.
+              </p>
+              <p class="mt-4 text-slate-700 dark:text-slate-300 leading-relaxed">
+                También tengo experiencia en gestión de servidores Linux, bases de datos, despliegues y resolución de incidencias.
+              </p>
+              <div class="mt-6 flex flex-wrap gap-2">
+                <span class="rounded-full border border-slate-200 bg-white/60 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-900/30 dark:text-slate-200">
+                  Arquitectura de sistemas
+                </span>
+                <span class="rounded-full border border-slate-200 bg-white/60 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-900/30 dark:text-slate-200">
+                  Automatización
+                </span>
+                <span class="rounded-full border border-slate-200 bg-white/60 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-900/30 dark:text-slate-200">
+                  Integraciones
+                </span>
+                <span class="rounded-full border border-slate-200 bg-white/60 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-900/30 dark:text-slate-200">
+                  Operación y soporte
+                </span>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 reveal">
+              <div class="rounded-3xl border border-slate-200/70 bg-white/60 p-6 dark:border-slate-800/70 dark:bg-slate-900/30">
+                <div class="flex items-center gap-3">
+                  <span class="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path
+                        d="M20 7 10 17l-5-5"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                  <div>
+                    <div class="text-sm font-semibold">Como trabajo</div>
+                    <div class="text-sm text-slate-600 dark:text-slate-400">Criterios que importan a producción</div>
+                  </div>
+                </div>
+
+                <div class="mt-5 space-y-3">
+                  <div class="rounded-2xl bg-white/70 p-4 border border-slate-200/70 dark:bg-slate-950/30 dark:border-slate-800/70">
+                    <div class="text-sm font-semibold">Calidad y mantenibilidad</div>
+                    <div class="mt-1 text-sm text-slate-700 dark:text-slate-300">
+                      Componentes claros, validaciones y monitoreo para reducir incidencias.
+                    </div>
+                  </div>
+                  <div class="rounded-2xl bg-white/70 p-4 border border-slate-200/70 dark:bg-slate-950/30 dark:border-slate-800/70">
+                    <div class="text-sm font-semibold">Entrega lista para operar</div>
+                    <div class="mt-1 text-sm text-slate-700 dark:text-slate-300">
+                      Despliegues controlados, configuración de infraestructura y soporte técnico.
+                    </div>
+                  </div>
+                  <div class="rounded-2xl bg-white/70 p-4 border border-slate-200/70 dark:bg-slate-950/30 dark:border-slate-800/70">
+                    <div class="text-sm font-semibold">Automatización con objetivo</div>
+                    <div class="mt-1 text-sm text-slate-700 dark:text-slate-300">
+                      Flujos que ahorran tiempo y eliminan errores manuales.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ESPECIALIZACION -->
+      <section id="especializacion" class="py-16 sm:py-20 bg-slate-50/50 dark:bg-slate-900/20">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+          <div class="reveal">
+            <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Especialización</h2>
+            <p class="mt-3 max-w-2xl text-slate-700 dark:text-slate-300">
+              Enfocado en entregar sistemas completos: desde integraciones hasta operación en producción.
+            </p>
+          </div>
+
+          <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <article class="reveal rounded-3xl border border-slate-200/70 bg-white/70 p-6 transition hover:-translate-y-0.5 hover:border-brand-500/50 dark:border-slate-800/70 dark:bg-slate-900/30">
+              <div class="flex items-start gap-3">
+                <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                  <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 2 4 6v12l8 4 8-4V6l-8-4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                    <path d="M12 10v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                    <path d="M20 6 12 10 4 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                  </svg>
+                </span>
+                <div>
+                  <h3 class="text-base font-semibold">Desarrollo de sistemas completos</h3>
+                  <p class="mt-2 text-sm text-slate-700 dark:text-slate-300">Full stack con enfoque en calidad y mantenibilidad.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="reveal rounded-3xl border border-slate-200/70 bg-white/70 p-6 transition hover:-translate-y-0.5 hover:border-brand-500/50 dark:border-slate-800/70 dark:bg-slate-900/30">
+              <div class="flex items-start gap-3">
+                <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                  <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path
+                      d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                    />
+                    <path d="M8 12h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                  </svg>
+                </span>
+                <div>
+                  <h3 class="text-base font-semibold">Automatización de procesos</h3>
+                  <p class="mt-2 text-sm text-slate-700 dark:text-slate-300">Reducir trabajo manual con flujos y validaciones.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="reveal rounded-3xl border border-slate-200/70 bg-white/70 p-6 transition hover:-translate-y-0.5 hover:border-brand-500/50 dark:border-slate-800/70 dark:bg-slate-900/30">
+              <div class="flex items-start gap-3">
+                <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                  <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M3 12h7l2-3 2 6 2-3h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+                <div>
+                  <h3 class="text-base font-semibold">Integración con APIs externas</h3>
+                  <p class="mt-2 text-sm text-slate-700 dark:text-slate-300">APIs REST y web services con consistencia.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="reveal rounded-3xl border border-slate-200/70 bg-white/70 p-6 transition hover:-translate-y-0.5 hover:border-brand-500/50 dark:border-slate-800/70 dark:bg-slate-900/30">
+              <div class="flex items-start gap-3">
+                <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                  <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M20 7 10 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+                <div>
+                  <h3 class="text-base font-semibold">Sistemas en producción</h3>
+                  <p class="mt-2 text-sm text-slate-700 dark:text-slate-300">Linux, bases de datos, despliegues y soporte.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROYECTO DESTACADO -->
+      <section id="proyecto" class="py-16 sm:py-20">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+          <div class="reveal">
+            <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Proyecto destacado</h2>
+            <p class="mt-3 max-w-2xl text-slate-700 dark:text-slate-300">
+              Un caso real donde combine desarrollo, administración e integraciones para operar de forma estable.
+            </p>
+          </div>
+
+          <div class="mt-8 grid gap-6 lg:grid-cols-12">
+            <div class="lg:col-span-7 reveal">
+              <div class="rounded-3xl border border-slate-200/70 bg-white/70 p-7 dark:border-slate-800/70 dark:bg-slate-900/30">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <div class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">
+                      <svg class="h-4 w-4 text-brand-500" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M12 2v4M12 18v4M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                      </svg>
+                      Caso SIISU
+                    </div>
+                    <h3 class="mt-4 text-xl font-bold tracking-tight">Sistema Integral Universitario (SIISU)</h3>
+                    <p class="mt-3 text-slate-700 dark:text-slate-300">
+                      Sistema web que centraliza la gestión académica, administrativa y financiera de una universidad.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="mt-6">
+                  <h4 class="text-sm font-semibold text-slate-900 dark:text-white">Características</h4>
+                  <ul class="mt-3 space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                    <li class="flex gap-3">
+                      <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      Gestión completa del alumno (aspirante a egresado)
+                    </li>
+                    <li class="flex gap-3">
+                      <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      Automatización de cuentas institucionales
+                    </li>
+                    <li class="flex gap-3">
+                      <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      Control escolar y académico
+                    </li>
+                    <li class="flex gap-3">
+                      <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      Gestión de empleados (RH)
+                    </li>
+                    <li class="flex gap-3">
+                      <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      Integración con servicios externos (RENAPO, finanzas)
+                    </li>
+                    <li class="flex gap-3">
+                      <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      Generación de fichas de pago
+                    </li>
+                    <li class="flex gap-3">
+                      <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      Carga masiva de calificaciones por Excel
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 reveal">
+              <div class="rounded-3xl border border-slate-200/70 bg-white/60 p-7 dark:border-slate-800/70 dark:bg-slate-900/30">
+                <h4 class="text-sm font-semibold text-slate-900 dark:text-white">Rol</h4>
+                <ul class="mt-3 space-y-3 text-sm text-slate-700 dark:text-slate-300">
+                  <li class="flex gap-3">
+                    <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-slate-900/5 text-slate-900 dark:bg-white/10 dark:text-white">
+                      <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M9 12.5 11 14.5 15.5 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                    Desarrollo full stack
+                  </li>
+                  <li class="flex gap-3">
+                    <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-slate-900/5 text-slate-900 dark:bg-white/10 dark:text-white">
+                      <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M9 12.5 11 14.5 15.5 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                    Administración de servidores
+                  </li>
+                  <li class="flex gap-3">
+                    <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-slate-900/5 text-slate-900 dark:bg-white/10 dark:text-white">
+                      <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M9 12.5 11 14.5 15.5 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                    Gestión de base de datos
+                  </li>
+                  <li class="flex gap-3">
+                    <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-slate-900/5 text-slate-900 dark:bg-white/10 dark:text-white">
+                      <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M9 12.5 11 14.5 15.5 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                    Soporte técnico
+                  </li>
+                </ul>
+
+                <div class="mt-6">
+                  <h4 class="text-sm font-semibold text-slate-900 dark:text-white">Impacto</h4>
+                  <div class="mt-3 rounded-2xl border border-brand-500/20 bg-brand-500/5 p-4">
+                    <div class="text-sm font-semibold text-slate-900 dark:text-white">Operaciones más eficientes</div>
+                    <p class="mt-1 text-sm text-slate-700 dark:text-slate-300">
+                      Automatización de cuentas y carga masiva para reducir tiempos operativos y errores manuales.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="mt-6 flex flex-wrap gap-2">
+                  <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">Laravel</span>
+                  <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">APIs REST</span>
+                  <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">Linux</span>
+                  <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">Bases de datos</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STACK TECNOLOGICO -->
+      <section id="stack" class="py-16 sm:py-20 bg-slate-50/50 dark:bg-slate-900/20">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+          <div class="reveal">
+            <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Stack tecnológico</h2>
+            <p class="mt-3 max-w-2xl text-slate-700 dark:text-slate-300">
+              Herramientas y tecnologías que conectan desarrollo, integraciones y operación.
+            </p>
+          </div>
+
+          <div class="mt-8 grid gap-4 lg:grid-cols-12">
+            <div class="reveal lg:col-span-6">
+              <div class="rounded-3xl border border-slate-200/70 bg-white/70 p-7 dark:border-slate-800/70 dark:bg-slate-900/30">
+                <h3 class="flex items-center gap-3 text-base font-semibold">
+                  <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M4 6h16M4 12h10M4 18h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                    </svg>
+                  </span>
+                  Backend
+                </h3>
+                <ul class="mt-4 space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                  <li class="flex items-center gap-3">
+                    <span class="inline-flex h-2.5 w-2.5 rounded-full bg-brand-500"></span>
+                    Laravel (PHP)
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <span class="inline-flex h-2.5 w-2.5 rounded-full bg-brand-500"></span>
+                    APIs REST
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="reveal lg:col-span-6">
+              <div class="rounded-3xl border border-slate-200/70 bg-white/70 p-7 dark:border-slate-800/70 dark:bg-slate-900/30">
+                <h3 class="flex items-center gap-3 text-base font-semibold">
+                  <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M4 4h16v16H4V4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                      <path d="M8 8h8M8 12h8M8 16h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                    </svg>
+                  </span>
+                  Frontend
+                </h3>
+                <ul class="mt-4 space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                  <li class="flex items-center gap-3">
+                    <span class="inline-flex h-2.5 w-2.5 rounded-full bg-brand-500"></span>
+                    HTML, CSS, JavaScript
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="reveal lg:col-span-6">
+              <div class="rounded-3xl border border-slate-200/70 bg-white/70 p-7 dark:border-slate-800/70 dark:bg-slate-900/30">
+                <h3 class="flex items-center gap-3 text-base font-semibold">
+                  <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M12 3c4 0 8 1.3 8 3s-4 3-8 3-8-1.3-8-3 4-3 8-3Z" stroke="currentColor" stroke-width="1.8" />
+                      <path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6" stroke="currentColor" stroke-width="1.8" />
+                      <path d="M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6" stroke="currentColor" stroke-width="1.8" />
+                    </svg>
+                  </span>
+                  Base de datos
+                </h3>
+                <ul class="mt-4 space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                  <li class="flex items-center gap-3">
+                    <span class="inline-flex h-2.5 w-2.5 rounded-full bg-brand-500"></span>
+                    SQL Server
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <span class="inline-flex h-2.5 w-2.5 rounded-full bg-brand-500"></span>
+                    PostgreSQL
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="reveal lg:col-span-6">
+              <div class="rounded-3xl border border-slate-200/70 bg-white/70 p-7 dark:border-slate-800/70 dark:bg-slate-900/30">
+                <h3 class="flex items-center gap-3 text-base font-semibold">
+                  <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M4 7h16v14H4V7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                      <path d="M8 7V3h8v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                  Infraestructura
+                </h3>
+                <ul class="mt-4 space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                  <li class="flex items-center gap-3">
+                    <span class="inline-flex h-2.5 w-2.5 rounded-full bg-brand-500"></span>
+                    Linux (Ubuntu)
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <span class="inline-flex h-2.5 w-2.5 rounded-full bg-brand-500"></span>
+                    Servidores
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="reveal lg:col-span-12">
+              <div class="rounded-3xl border border-slate-200/70 bg-white/70 p-7 dark:border-slate-800/70 dark:bg-slate-900/30">
+                <h3 class="flex items-center gap-3 text-base font-semibold">
+                  <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M12 2l9 5-9 5-9-5 9-5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                      <path d="M3 12l9 5 9-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M3 17l9 5 9-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                  Otros
+                </h3>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">
+                    Integraciones con web services
+                  </span>
+                  <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">
+                    Automatización
+                  </span>
+                  <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">
+                    Uso de IA (Cursor)
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCIA -->
+      <section id="experiencia" class="py-16 sm:py-20">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+          <div class="reveal">
+            <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Experiencia</h2>
+            <p class="mt-3 max-w-2xl text-slate-700 dark:text-slate-300">
+              Historia enfocada en trabajo real: decisiones técnicas, mantenimiento y operaciones.
+            </p>
+          </div>
+
+          <div class="mt-8 grid gap-4 lg:grid-cols-12">
+            <article class="reveal lg:col-span-12">
+              <div class="rounded-3xl border border-slate-200/70 bg-white/70 p-7 dark:border-slate-800/70 dark:bg-slate-900/30">
+                <div class="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
+                  <div>
+                    <div class="flex items-center gap-3">
+                      <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M12 2 4 6v12l8 4 8-4V6l-8-4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                          <path d="M9 11h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <path d="M9 15h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                        </svg>
+                      </span>
+                      <div>
+                        <h3 class="text-lg font-bold">Universidad Politecnica de Victoria</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400">Desarrollo y mantenimiento de sistema institucional</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="rounded-2xl border border-slate-200 bg-white/70 px-4 py-3 text-sm font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">
+                    Rol: Backend & Arquitectura
+                  </div>
+                </div>
+
+                <ul class="mt-6 grid gap-3 md:grid-cols-2">
+                  <li class="flex gap-3 rounded-2xl bg-white/60 p-4 border border-slate-200/70 dark:bg-slate-950/20 dark:border-slate-800/70">
+                    <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                      <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                    Desarrollo y mantenimiento de sistema institucional
+                  </li>
+                  <li class="flex gap-3 rounded-2xl bg-white/60 p-4 border border-slate-200/70 dark:bg-slate-950/20 dark:border-slate-800/70">
+                    <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                      <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                    Participación en decisiones técnicas
+                  </li>
+                  <li class="flex gap-3 rounded-2xl bg-white/60 p-4 border border-slate-200/70 dark:bg-slate-950/20 dark:border-slate-800/70">
+                    <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                      <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                    Gestión de servidores y producción
+                  </li>
+                  <li class="flex gap-3 rounded-2xl bg-white/60 p-4 border border-slate-200/70 dark:bg-slate-950/20 dark:border-slate-800/70">
+                    <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                      <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                    Resolución de incidencias y soporte técnico
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACTO -->
+      <section id="contacto" class="py-16 sm:py-20 bg-slate-950 text-slate-100 relative overflow-hidden">
+        <div class="absolute inset-0 -z-10">
+          <div class="absolute -top-48 left-1/2 h-[520px] w-[900px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-brand-500/25 via-cyan-400/15 to-transparent blur-2xl"></div>
+          <div class="absolute top-20 -left-20 h-72 w-72 rounded-full bg-brand-500/10 blur-2xl"></div>
+          <div class="absolute bottom-0 -right-20 h-72 w-72 rounded-full bg-cyan-400/10 blur-2xl"></div>
+        </div>
+
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+          <div class="reveal">
+            <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Contacto</h2>
+            <p class="mt-3 max-w-2xl text-slate-300">
+              Si buscas un desarrollador enfocado en sistemas web, automatización y producción: conectemos.
+            </p>
+          </div>
+
+          <div class="mt-8 grid gap-4 lg:grid-cols-12">
+            <div class="reveal lg:col-span-7">
+              <div class="rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur">
+                <div class="flex items-center justify-between gap-4">
+                  <div>
+                    <div class="text-sm font-semibold text-white">Canales</div>
+                    <div class="mt-1 text-sm text-slate-300">Links listos para reclutadores</div>
+                  </div>
+                  <span class="inline-flex items-center rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold text-slate-200">
+                    Respuesta rápida
+                  </span>
+                </div>
+
+                <div class="mt-6 grid gap-3 sm:grid-cols-1">
+                  <a
+                    href="mailto:yashubge@gmail.com"
+                    class="group inline-flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 transition hover:border-brand-400/50 hover:bg-white/10"
+                    title="Enviar correo"
+                    data-copy="yashubge@gmail.com"
+                  >
+                    <span class="flex items-center gap-3">
+                      <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-300">
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                          <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      <span class="text-sm">
+                        <span class="block font-semibold text-white">Email</span>
+                        <span class="block font-mono text-slate-300 text-xs">
+                          yashubge@gmail.com
+                        </span>
+                      </span>
+                    </span>
+                    <span class="flex items-center gap-3">
+                      <button
+                        type="button"
+                        data-copy-btn
+                        class="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold text-slate-200 transition hover:border-brand-400/50 hover:bg-white/10 group-hover:text-white"
+                        aria-label="Copiar correo"
+                      >
+                        Copiar
+                      </button>
+                      <span class="text-slate-200 group-hover:text-white">
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M9 18 15 12 9 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                    </span>
+                  </a>
+
+                  <a
+                    href="https://github.com/yguzmane"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="group inline-flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 transition hover:border-brand-400/50 hover:bg-white/10"
+                    title="Abrir GitHub"
+                    data-copy="https://github.com/yguzmane"
+                  >
+                    <span class="flex items-center gap-3">
+                      <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-300">
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M9 19c-5 1.5-5-2.5-7-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <path
+                            d="M15 22v-3.87c0-1.08.4-2.12 1.1-2.9 2.12-2.5.76-6.13-2.62-6.13-3.38 0-4.74 3.63-2.62 6.13.7.78 1.1 1.82 1.1 2.9V22"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </span>
+                      <span class="text-sm">
+                        <span class="block font-semibold text-white">GitHub</span>
+                        <span class="block font-mono text-slate-300 text-xs">@yguzmane</span>
+                      </span>
+                    </span>
+                    <span class="flex items-center gap-3">
+                      <button
+                        type="button"
+                        data-copy-btn
+                        class="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold text-slate-200 transition hover:border-brand-400/50 hover:bg-white/10 group-hover:text-white"
+                        aria-label="Copiar enlace de GitHub"
+                      >
+                        Copiar
+                      </button>
+                      <span class="text-slate-200 group-hover:text-white">
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M9 18 15 12 9 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                    </span>
+                  </a>
+
+                  <a
+                    href="https://www.linkedin.com/in/yashub-armando-guzm%C3%A1n-espinoza-12260719a/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="group inline-flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 transition hover:border-brand-400/50 hover:bg-white/10"
+                    title="Abrir LinkedIn"
+                    data-copy="https://www.linkedin.com/in/yashub-armando-guzm%C3%A1n-espinoza-12260719a/"
+                  >
+                    <span class="flex items-center gap-3">
+                      <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-300">
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M4 4h16v16H4V4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                          <path d="M8 11v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                          <path d="M8 8.5v.2" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" />
+                          <path d="M12 17v-3.2c0-1.2.8-2.1 2-2.1 1.2 0 2 .9 2 2.1V17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      <span class="text-sm">
+                        <span class="block font-semibold text-white">LinkedIn</span>
+                        <span class="block font-mono text-slate-300 text-xs">yashub-armando</span>
+                      </span>
+                    </span>
+                    <span class="flex items-center gap-3">
+                      <button
+                        type="button"
+                        data-copy-btn
+                        class="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold text-slate-200 transition hover:border-brand-400/50 hover:bg-white/10 group-hover:text-white"
+                        aria-label="Copiar enlace de LinkedIn"
+                      >
+                        Copiar
+                      </button>
+                      <span class="text-slate-200 group-hover:text-white">
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M9 18 15 12 9 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="reveal lg:col-span-5">
+              <div class="rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur">
+                <div class="flex items-center justify-between gap-4">
+                  <div>
+                    <div class="text-sm font-semibold text-white">Resumen</div>
+                    <div class="mt-1 text-sm text-slate-300">Lo que llevas al equipo</div>
+                  </div>
+                  <span class="inline-flex items-center rounded-2xl bg-brand-500/20 px-3 py-2 text-xs font-semibold text-brand-200">
+                    Web Systems
+                  </span>
+                </div>
+
+                <div class="mt-5 space-y-3">
+                  <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                    <div class="text-sm font-semibold text-white">Entrega lista para producción</div>
+                    <p class="mt-1 text-sm text-slate-300">
+                      Despliegues, monitoreo, bases de datos y soporte técnico.
+                    </p>
+                  </div>
+                  <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                    <div class="text-sm font-semibold text-white">Automatización con resultados</div>
+                    <p class="mt-1 text-sm text-slate-300">
+                      Procesos que reducen tiempo operativo y errores manuales.
+                    </p>
+                  </div>
+                  <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                    <div class="text-sm font-semibold text-white">Integraciones confiables</div>
+                    <p class="mt-1 text-sm text-slate-300">
+                      APIs REST y web services con validaciones y consistencia.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="mt-6">
+                  <a
+                    href="#proyecto"
+                    class="inline-flex w-full items-center justify-center rounded-2xl bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/15"
+                  >
+                    Ver el caso SIISU
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-10 flex items-center justify-between gap-4 border-t border-white/10 pt-6">
+            <p class="text-sm text-slate-300">
+              © <span id="year"></span> Yashub Guzman. Todos los derechos reservados.
+            </p>
+            <button
+              id="back-to-top"
+              type="button"
+              class="hidden rounded-2xl border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+              aria-label="Volver arriba"
+            >
+              Arriba
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      (function () {
+        const root = document.documentElement;
+        const toggle = document.getElementById("theme-toggle");
+        const iconSun = document.getElementById("icon-sun");
+        const iconMoon = document.getElementById("icon-moon");
+        const year = document.getElementById("year");
+        const backToTop = document.getElementById("back-to-top");
+        const mobileToggle = document.getElementById("mobile-menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const experienceYears = document.getElementById("experience-years");
+        const experienceYearsPlus = document.getElementById("experience-years-plus");
+
+        year.textContent = new Date().getFullYear();
+
+        // Theme init
+        const savedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const initialDark = savedTheme ? savedTheme === "dark" : prefersDark;
+        if (initialDark) root.classList.add("dark");
+        setToggleUI();
+
+        function setToggleUI() {
+          const isDark = root.classList.contains("dark");
+          toggle.setAttribute("aria-pressed", String(isDark));
+          iconSun.classList.toggle("hidden", !isDark);
+          iconMoon.classList.toggle("hidden", isDark);
+        }
+
+        // Experiencia dinamica: inicia el 1 de noviembre de 2021.
+        (function setExperienceYears() {
+          if (!experienceYears && !experienceYearsPlus) return;
+
+          const start = new Date(2021, 10, 1); // Mes 0-based: 10 = noviembre
+          const now = new Date();
+
+          let years = now.getFullYear() - start.getFullYear();
+          const monthDiff = now.getMonth() - start.getMonth();
+          const dayDiff = now.getDate() - start.getDate();
+          if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) years -= 1;
+          years = Math.max(0, years);
+
+          if (experienceYears) experienceYears.textContent = String(years);
+          if (experienceYearsPlus) experienceYearsPlus.textContent = `${years}+ años`;
+        })();
+
+        if (toggle) {
+          toggle.addEventListener("click", () => {
+            root.classList.toggle("dark");
+            localStorage.setItem("theme", root.classList.contains("dark") ? "dark" : "light");
+            setToggleUI();
+          });
+        }
+
+        function setMobileMenu(open) {
+          if (!mobileMenu || !mobileToggle) return;
+          mobileToggle.setAttribute("aria-expanded", String(open));
+          mobileMenu.classList.toggle("pointer-events-auto", open);
+          mobileMenu.classList.toggle("pointer-events-none", !open);
+          mobileMenu.classList.toggle("max-h-0", !open);
+          mobileMenu.classList.toggle("max-h-[420px]", open);
+          mobileMenu.classList.toggle("opacity-0", !open);
+          mobileMenu.classList.toggle("opacity-100", open);
+          mobileMenu.classList.toggle("translate-y-2", !open);
+          mobileMenu.classList.toggle("translate-y-0", open);
+        }
+
+        if (mobileToggle) {
+          mobileToggle.addEventListener("click", () => {
+            const open = mobileToggle.getAttribute("aria-expanded") !== "true";
+            setMobileMenu(open);
+          });
+        }
+
+        window.addEventListener("keydown", (e) => {
+          if (e.key !== "Escape") return;
+          setMobileMenu(false);
+        });
+
+        const mqMd = window.matchMedia && window.matchMedia("(min-width: 768px)");
+        if (mqMd) {
+          mqMd.addEventListener("change", () => {
+            if (mqMd.matches) setMobileMenu(false);
+          });
+        }
+
+        // Smooth anchor navigation (respeta reduced motion)
+        const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        document.addEventListener("click", (e) => {
+          const a = e.target && e.target.closest ? e.target.closest('a[href^="#"]') : null;
+          if (!a) return;
+          const href = a.getAttribute("href");
+          if (!href || href === "#") return;
+
+          const target = document.querySelector(href);
+          if (!target) return;
+
+          // Cierra el menu movil al navegar desde el panel.
+          if (mobileMenu && mobileMenu.contains(a)) setMobileMenu(false);
+
+          e.preventDefault();
+          target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+        });
+
+        // Copy buttons (GitHub / LinkedIn)
+        const copyButtons = Array.from(document.querySelectorAll("[data-copy-btn]"));
+        copyButtons.forEach((btn) => {
+          btn.addEventListener("click", async (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const anchor = btn.closest("a[data-copy]");
+            const textToCopy = anchor ? anchor.getAttribute("data-copy") : null;
+            if (!textToCopy) return;
+
+            const originalText = btn.textContent;
+            const setCopied = () => {
+              btn.textContent = "Copiado";
+              setTimeout(() => {
+                btn.textContent = originalText;
+              }, 1400);
+            };
+
+            try {
+              if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+                await navigator.clipboard.writeText(textToCopy);
+                setCopied();
+                return;
+              }
+            } catch {
+              // Fallback below
+            }
+
+            // Fallback: execCommand
+            try {
+              const textarea = document.createElement("textarea");
+              textarea.value = textToCopy;
+              textarea.setAttribute("readonly", "");
+              textarea.style.position = "absolute";
+              textarea.style.left = "-9999px";
+              document.body.appendChild(textarea);
+              textarea.select();
+              document.execCommand("copy");
+              document.body.removeChild(textarea);
+              setCopied();
+            } catch {
+              btn.textContent = "Error";
+              setTimeout(() => {
+                btn.textContent = originalText;
+              }, 1400);
+            }
+          });
+        });
+
+        // Reveal animations
+        const revealEls = Array.from(document.querySelectorAll(".reveal"));
+        if (revealEls.length) {
+          const obs = new IntersectionObserver(
+            (entries) => {
+              for (const entry of entries) {
+                if (entry.isIntersecting) entry.target.classList.add("is-visible");
+              }
+            },
+            { threshold: 0.12 }
+          );
+          revealEls.forEach((el) => obs.observe(el));
+        }
+
+        // Back to top
+        const onScroll = () => {
+          if (!backToTop) return;
+          backToTop.classList.toggle("hidden", window.scrollY < 600);
+        };
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+
+        if (backToTop) {
+          backToTop.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
