@@ -6,12 +6,16 @@
     <title>Yashub Guzman - Desarrollador de Sistemas Web</title>
     <meta
       name="description"
-      content="Desarrollador de Sistemas Web (Backend & Arquitectura). Desarrollo de sistemas web completos, automatizados y listos para producción."
+      content="Desarrollador de sistemas web con enfoque en backend y arquitectura. Experiencia en integraciones, bases de datos y operación en entornos productivos."
     />
 
     <link
       href="./assets/fonts.css"
       rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.css"
     />
 
     <script src="./assets/tailwind-cdn.js"></script>
@@ -48,6 +52,12 @@
 
     <style>
       /* Pequenita capa "grain" usando SVG embebido para un look SaaS minimalista */
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
       .grain::before {
         content: "";
         position: absolute;
@@ -83,7 +93,7 @@
     </style>
   </head>
 
-  <body class="font-sans bg-white text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100">
+  <body class="overflow-x-hidden font-sans bg-white text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100">
     <a
       href="#main"
       class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-brand-500 focus:px-3 focus:py-2 focus:text-white"
@@ -111,7 +121,7 @@
           </div>
 
           <nav class="hidden items-center gap-6 md:flex" aria-label="Secciones">
-            <a class="text-sm text-slate-700 hover:text-brand-500 dark:text-slate-300 dark:hover:text-brand-300" href="#sobre-mi">Sobre mi</a>
+            <a class="text-sm text-slate-700 hover:text-brand-500 dark:text-slate-300 dark:hover:text-brand-300" href="#sobre-mi">Sobre mí</a>
             <a class="text-sm text-slate-700 hover:text-brand-500 dark:text-slate-300 dark:hover:text-brand-300" href="#como-trabajo">Cómo trabajo</a>
             <a class="text-sm text-slate-700 hover:text-brand-500 dark:text-slate-300 dark:hover:text-brand-300" href="#especializacion">Especialización</a>
             <a class="text-sm text-slate-700 hover:text-brand-500 dark:text-slate-300 dark:hover:text-brand-300" href="#stack">Stack</a>
@@ -164,12 +174,6 @@
               </svg>
             </button>
 
-            <a
-              href="#contacto"
-              class="hidden rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800 dark:bg-white/10 dark:hover:bg-white/15 md:inline-flex"
-            >
-              Hablemos
-            </a>
           </div>
         </div>
 
@@ -180,7 +184,7 @@
         >
           <div class="p-3">
             <div class="flex flex-col gap-1">
-              <a class="mobile-link rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-brand-500/10 dark:text-slate-100" href="#sobre-mi">Sobre mi</a>
+              <a class="mobile-link rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-brand-500/10 dark:text-slate-100" href="#sobre-mi">Sobre mí</a>
               <a class="mobile-link rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-brand-500/10 dark:text-slate-100" href="#como-trabajo">Cómo trabajo</a>
               <a class="mobile-link rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-brand-500/10 dark:text-slate-100" href="#especializacion">Especialización</a>
               <a class="mobile-link rounded-2xl px-4 py-3 text-sm font-semibold text-slate-800 hover:bg-brand-500/10 dark:text-slate-100" href="#stack">Stack</a>
@@ -200,11 +204,11 @@
     </header>
 
     <!-- Main -->
-    <main id="main">
+    <main id="main" class="min-w-0 overflow-x-hidden">
       <!-- HERO -->
       <section class="relative overflow-hidden grain pt-24">
         <div class="absolute inset-0 -z-10">
-          <div class="absolute -top-40 left-1/2 h-[520px] w-[900px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-brand-200/40 via-brand-300/20 to-transparent blur-2xl"></div>
+          <div class="absolute -top-40 left-1/2 h-[360px] w-[520px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-brand-200/40 via-brand-300/20 to-transparent blur-2xl sm:h-[520px] sm:w-[900px]"></div>
           <div class="absolute top-24 -left-24 h-64 w-64 rounded-full bg-gradient-to-br from-sky-400/25 to-transparent blur-2xl"></div>
           <div class="absolute bottom-10 -right-24 h-72 w-72 rounded-full bg-gradient-to-br from-cyan-400/20 to-transparent blur-2xl"></div>
         </div>
@@ -212,19 +216,15 @@
         <div class="mx-auto max-w-6xl px-4 pb-16 sm:px-6 sm:pb-20">
           <div class="grid items-center gap-10 lg:grid-cols-12">
             <div class="lg:col-span-7 reveal">
-              <div class="inline-flex items-center gap-2 rounded-full border border-slate-200/70 bg-white/60 px-4 py-2 text-sm text-slate-700 backdrop-blur dark:border-slate-800/70 dark:bg-slate-900/30 dark:text-slate-300">
-                <span class="inline-flex h-2 w-2 rounded-full bg-brand-500"></span>
-                Disponible para proyectos de sistemas web
-              </div>
 
               <h1 class="mt-6 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
                 <span class="block">Yashub Armando Guzman Espinoza</span>
                 <span class="mt-2 block text-2xl font-semibold text-slate-700 dark:text-slate-300 sm:text-3xl lg:text-4xl">
-                  Backend & Arquitectura de Sistemas Web en Producción
+                  Backend y arquitectura de sistemas web
                 </span>
               </h1>
               <p class="mt-5 max-w-2xl text-base leading-relaxed text-slate-700 dark:text-slate-300 sm:text-lg">
-                Diseño, desarrollo y operación de sistemas web completos, automatizados y listos para producción.
+                Diseño, desarrollo y mantenimiento de sistemas web: bases de datos, integraciones y despliegues.
               </p>
 
               <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -247,7 +247,7 @@
                   <div class="font-mono text-sm text-brand-600 dark:text-brand-300">
                     <span id="experience-years-plus">4+ años</span>
                   </div>
-                  <div class="mt-1 text-sm text-slate-700 dark:text-slate-300">Experiencia en producción</div>
+                  <div class="mt-1 text-sm text-slate-700 dark:text-slate-300">Experiencia en entornos productivos</div>
                 </div>
                 <div class="rounded-2xl border border-slate-200/70 bg-white/60 p-4 backdrop-blur dark:border-slate-800/70 dark:bg-slate-900/30">
                   <div class="font-mono text-sm text-brand-600 dark:text-brand-300">Full Stack</div>
@@ -266,18 +266,18 @@
                 </div>
                 <div class="rounded-2xl border border-brand-500/20 bg-brand-500/5 p-4 transition duration-300 hover:-translate-y-0.5 hover:border-brand-500/40 hover:shadow-brand">
                   <div class="text-sm font-bold text-slate-900 dark:text-white">24/7</div>
-                  <div class="mt-1 text-xs font-semibold text-slate-700 dark:text-slate-300">Sistema en producción</div>
+                  <div class="mt-1 text-xs font-semibold text-slate-700 dark:text-slate-300">Operación continua</div>
                 </div>
                 <div class="rounded-2xl border border-brand-500/20 bg-brand-500/5 p-4 transition duration-300 hover:-translate-y-0.5 hover:border-brand-500/40 hover:shadow-brand">
-                  <div class="text-sm font-bold text-slate-900 dark:text-white">+X</div>
+                  <div class="text-sm font-bold text-slate-900 dark:text-white">Múltiples</div>
                   <div class="mt-1 text-xs font-semibold text-slate-700 dark:text-slate-300">Procesos automatizados</div>
                 </div>
               </div>
 
               <div class="mt-4 flex flex-wrap gap-2">
-                <span class="rounded-full border border-brand-500/25 bg-brand-500/10 px-3 py-1 text-xs font-semibold text-brand-700 dark:text-brand-200">En producción</span>
-                <span class="rounded-full border border-brand-500/25 bg-brand-500/10 px-3 py-1 text-xs font-semibold text-brand-700 dark:text-brand-200">Automatización</span>
-                <span class="rounded-full border border-brand-500/25 bg-brand-500/10 px-3 py-1 text-xs font-semibold text-brand-700 dark:text-brand-200">Integraciones reales</span>
+                <span class="rounded-full border border-brand-500/25 bg-brand-500/10 px-3 py-1 text-xs font-semibold text-brand-700 dark:text-brand-200">Entornos productivos</span>
+                <span class="rounded-full border border-brand-500/25 bg-brand-500/10 px-3 py-1 text-xs font-semibold text-brand-700 dark:text-brand-200">Automatización de procesos</span>
+                <span class="rounded-full border border-brand-500/25 bg-brand-500/10 px-3 py-1 text-xs font-semibold text-brand-700 dark:text-brand-200">APIs y servicios externos</span>
               </div>
             </div>
 
@@ -289,7 +289,7 @@
                 <div class="flex items-start justify-between gap-4">
                   <div>
                     <div class="text-sm font-semibold text-slate-900 dark:text-white">Enfoque</div>
-                    <div class="mt-1 text-sm text-slate-600 dark:text-slate-400">Sistemas web listos para operar</div>
+                    <div class="mt-1 text-sm text-slate-600 dark:text-slate-400">Sistemas orientados al uso operativo diario</div>
                   </div>
                   <span class="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white/70 px-3 py-2 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">
                     <svg class="h-4 w-4 text-brand-500" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -333,8 +333,8 @@
                       </svg>
                     </div>
                     <div>
-                      <div class="text-sm font-semibold">Automatización con impacto operativo</div>
-                      <div class="mt-1 text-sm text-slate-700 dark:text-slate-300">Flujos que reducen tiempos operativos</div>
+                      <div class="text-sm font-semibold">Eficiencia operativa</div>
+                      <div class="mt-1 text-sm text-slate-700 dark:text-slate-300">Flujos que reducen tiempos y errores recurrentes</div>
                     </div>
                   </div>
 
@@ -373,9 +373,9 @@
                 <div class="mt-6 rounded-2xl bg-brand-500/5 p-4 border border-brand-500/15">
                   <div class="flex items-center justify-between gap-4">
                     <div class="min-w-0">
-                      <div class="text-sm font-semibold">Perfil orientado a resultados</div>
+                      <div class="text-sm font-semibold">Prioridad al valor operativo</div>
                       <div class="mt-1 text-sm text-slate-700 dark:text-slate-300">
-                        Enfoque en impacto: producción, automatización y calidad operativa.
+                        Código mantenible, despliegues controlados y soporte al usuario interno del sistema.
                       </div>
                     </div>
                     <span class="inline-flex shrink-0 rounded-xl bg-white/70 px-3 py-2 text-xs font-semibold text-slate-900 dark:bg-slate-950/40 dark:text-slate-200">
@@ -389,14 +389,14 @@
         </div>
       </section>
 
-      <!-- SOBRE MI -->
+      <!-- SOBRE MÍ -->
       <section id="sobre-mi" class="relative py-16 sm:py-20">
         <div class="mx-auto max-w-6xl px-4 sm:px-6">
           <div class="reveal">
-            <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Sobre mi</h2>
+            <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Sobre mí</h2>
             <p class="mt-3 max-w-3xl text-slate-700 dark:text-slate-300">
-              Desarrollador con <span id="experience-years">4</span> años de experiencia creando y manteniendo sistemas web en producción.
-              Especializado en automatización de procesos, integración con servicios externos y administración de infraestructura.
+              Cuento con <span id="experience-years">4</span> años de experiencia en el desarrollo y mantenimiento de sistemas web utilizados por más de mil usuarios.
+              Me especializo en la automatización de tareas repetitivas, la integración de sistemas mediante APIs externas y la administración de servidores y bases de datos.
             </p>
           </div>
 
@@ -407,17 +407,17 @@
                 incluyendo procesos académicos, administrativos y financieros.
               </p>
               <p class="mt-4 text-slate-700 dark:text-slate-300 leading-relaxed">
-                También tengo experiencia en gestión de servidores Linux, bases de datos, despliegues y resolución de incidencias.
+                Gestión de servidores Linux, bases de datos, despliegues y resolución de incidencias en entornos productivos.
               </p>
               <p class="mt-4 text-slate-700 dark:text-slate-300 leading-relaxed">
-                También participo en la toma de decisiones técnicas, levantamiento de requerimientos y propuestas de solución en colaboración con áreas directivas.
+                Colaboro en decisiones técnicas, levantamiento de requerimientos y propuestas de solución en conjunto con áreas directivas.
               </p>
               <div class="mt-6 flex flex-wrap gap-2">
                 <span class="rounded-full border border-slate-200 bg-white/60 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-900/30 dark:text-slate-200">
                   Arquitectura de sistemas
                 </span>
                 <span class="rounded-full border border-slate-200 bg-white/60 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-900/30 dark:text-slate-200">
-                  Automatización con impacto operativo
+                  Automatización de procesos
                 </span>
                 <span class="rounded-full border border-slate-200 bg-white/60 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-900/30 dark:text-slate-200">
                   Integraciones
@@ -443,8 +443,8 @@
                     </svg>
                   </span>
                   <div>
-                    <div class="text-sm font-semibold">Autoridad técnica</div>
-                    <div class="text-sm text-slate-600 dark:text-slate-400">Participación activa en decisiones de producto y arquitectura</div>
+                    <div class="text-sm font-semibold">Criterio técnico en equipo</div>
+                    <div class="text-sm text-slate-600 dark:text-slate-400">Participación en decisiones de producto y arquitectura</div>
                   </div>
                 </div>
 
@@ -456,13 +456,13 @@
                     </div>
                   </div>
                   <div class="rounded-2xl bg-white/70 p-4 border border-slate-200/70 transition duration-300 hover:-translate-y-0.5 hover:border-brand-500/40 hover:shadow-brand dark:bg-slate-950/30 dark:border-slate-800/70">
-                    <div class="text-sm font-semibold">Entrega lista para operar</div>
+                    <div class="text-sm font-semibold">Entregas listas para producción</div>
                     <div class="mt-1 text-sm text-slate-700 dark:text-slate-300">
-                      Despliegues controlados, configuración de infraestructura y soporte técnico.
+                      Despliegues controlados, infraestructura y seguimiento posterior al release.
                     </div>
                   </div>
                   <div class="rounded-2xl bg-white/70 p-4 border border-slate-200/70 transition duration-300 hover:-translate-y-0.5 hover:border-brand-500/40 hover:shadow-brand dark:bg-slate-950/30 dark:border-slate-800/70">
-                    <div class="text-sm font-semibold">Automatización con impacto operativo</div>
+                    <div class="text-sm font-semibold">Automatización orientada a resultados</div>
                     <div class="mt-1 text-sm text-slate-700 dark:text-slate-300">
                       Flujos que ahorran tiempo y eliminan errores manuales.
                     </div>
@@ -480,7 +480,7 @@
           <div class="reveal">
             <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Cómo trabajo</h2>
             <p class="mt-3 max-w-2xl text-slate-700 dark:text-slate-300">
-              Principios de trabajo para construir soluciones sostenibles y de alto impacto.
+              Enfoque de trabajo orientado al desarrollo y al mantenimiento a largo plazo.
             </p>
           </div>
 
@@ -493,7 +493,7 @@
                     <path d="M12 8.5A3.5 3.5 0 1 0 12 15.5A3.5 3.5 0 1 0 12 8.5Z" stroke="currentColor" stroke-width="1.8" />
                   </svg>
                 </span>
-                <p class="text-sm font-semibold text-slate-900 dark:text-white">Pienso en producción desde el diseño</p>
+                <p class="text-sm font-semibold text-slate-900 dark:text-white">Anticipo despliegue y mantenimiento desde el diseño</p>
               </div>
             </article>
             <article class="reveal rounded-2xl border border-slate-200/70 bg-white/70 p-5 transition duration-300 hover:-translate-y-1 hover:border-brand-500/40 hover:shadow-brand dark:border-slate-800/70 dark:bg-slate-900/30">
@@ -534,7 +534,7 @@
                     <path d="M12 20V4M12 4l-4 4M12 4l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
                   </svg>
                 </span>
-                <p class="text-sm font-semibold text-slate-900 dark:text-white">Enfoco soluciones en impacto real</p>
+                <p class="text-sm font-semibold text-slate-900 dark:text-white">Mejoras con impacto medible en la operación</p>
               </div>
             </article>
           </div>
@@ -547,7 +547,7 @@
           <div class="reveal">
             <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Especialización</h2>
             <p class="mt-3 max-w-2xl text-slate-700 dark:text-slate-300">
-              Enfocado en entregar sistemas completos: desde integraciones hasta operación en producción.
+              Sistemas integrales: integraciones, bases de datos y operación continua.
             </p>
           </div>
 
@@ -582,8 +582,8 @@
                   </svg>
                 </span>
                 <div class="mt-4">
-                  <h3 class="text-base font-semibold">Automatización con impacto operativo</h3>
-                  <p class="mt-2 text-sm text-slate-700 dark:text-slate-300">Reducir trabajo manual con flujos y validaciones.</p>
+                  <h3 class="text-base font-semibold">Automatización de procesos repetibles</h3>
+                  <p class="mt-2 text-sm text-slate-700 dark:text-slate-300">Reducción de trabajo manual mediante flujos y validaciones.</p>
                 </div>
               </div>
             </article>
@@ -610,180 +610,11 @@
                   </svg>
                 </span>
                 <div class="mt-4">
-                  <h3 class="text-base font-semibold">Sistemas reales en producción</h3>
-                  <p class="mt-2 text-sm text-slate-700 dark:text-slate-300">Linux, bases de datos, despliegues y soporte.</p>
+                  <h3 class="text-base font-semibold">Operación en entornos productivos</h3>
+                  <p class="mt-2 text-sm text-slate-700 dark:text-slate-300">Linux, bases de datos, despliegues y soporte continuo.</p>
                 </div>
               </div>
             </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- PROYECTO DESTACADO -->
-      <section id="proyecto" class="py-16 sm:py-20">
-        <div class="mx-auto max-w-6xl px-4 sm:px-6">
-          <div class="reveal">
-            <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Proyecto destacado</h2>
-            <p class="mt-3 max-w-2xl text-slate-700 dark:text-slate-300">
-              Un caso real donde combine desarrollo, administración e integraciones para operar de forma estable.
-            </p>
-          </div>
-
-          <div class="mt-8 grid gap-6 lg:grid-cols-12">
-            <div class="lg:col-span-7 reveal">
-              <div class="rounded-3xl border border-slate-200/70 bg-white/70 p-7 transition duration-300 hover:-translate-y-1 hover:border-brand-500/40 hover:shadow-brand dark:border-slate-800/70 dark:bg-slate-900/30">
-                <div class="flex items-start justify-between gap-4">
-                  <div>
-                    <div class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">
-                      <svg class="h-4 w-4 text-brand-500" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <path d="M12 2v4M12 18v4M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                      </svg>
-                      Caso SIISU
-                    </div>
-                    <h3 class="mt-4 text-xl font-bold tracking-tight">Sistema Integral Universitario (SIISU)</h3>
-                    <p class="mt-3 text-slate-700 dark:text-slate-300">
-                      Sistema web que centraliza la gestión académica, administrativa y financiera de una universidad.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="mt-6">
-                  <h4 class="text-sm font-semibold text-slate-900 dark:text-white">Características</h4>
-                  <ul class="mt-3 space-y-2 text-sm text-slate-700 dark:text-slate-300">
-                    <li class="flex gap-3">
-                      <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
-                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                          <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                      </span>
-                      Gestión completa del alumno (aspirante a egresado)
-                    </li>
-                    <li class="flex gap-3">
-                      <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
-                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                          <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                      </span>
-                      Automatización de cuentas institucionales
-                    </li>
-                    <li class="flex gap-3">
-                      <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
-                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                          <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                      </span>
-                      Control escolar y académico
-                    </li>
-                    <li class="flex gap-3">
-                      <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
-                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                          <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                      </span>
-                      Gestión de empleados (RH)
-                    </li>
-                    <li class="flex gap-3">
-                      <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
-                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                          <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                      </span>
-                      Integración con servicios externos (RENAPO, finanzas)
-                    </li>
-                    <li class="flex gap-3">
-                      <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
-                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                          <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                      </span>
-                      Generación de fichas de pago
-                    </li>
-                    <li class="flex gap-3">
-                      <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
-                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                          <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                      </span>
-                      Carga masiva de calificaciones por Excel
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="lg:col-span-5 reveal">
-              <div class="rounded-3xl border border-slate-200/70 bg-white/60 p-7 transition duration-300 hover:-translate-y-1 hover:border-brand-500/40 hover:shadow-brand dark:border-slate-800/70 dark:bg-slate-900/30">
-                <h4 class="text-sm font-semibold text-slate-900 dark:text-white">Rol</h4>
-                <ul class="mt-3 space-y-3 text-sm text-slate-700 dark:text-slate-300">
-                  <li class="flex gap-3">
-                    <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-slate-900/5 text-slate-900 dark:bg-white/10 dark:text-white">
-                      <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <path d="M9 12.5 11 14.5 15.5 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                      </svg>
-                    </span>
-                    Desarrollo full stack
-                  </li>
-                  <li class="flex gap-3">
-                    <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-slate-900/5 text-slate-900 dark:bg-white/10 dark:text-white">
-                      <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <path d="M9 12.5 11 14.5 15.5 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                      </svg>
-                    </span>
-                    Administración de servidores
-                  </li>
-                  <li class="flex gap-3">
-                    <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-slate-900/5 text-slate-900 dark:bg-white/10 dark:text-white">
-                      <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <path d="M9 12.5 11 14.5 15.5 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                      </svg>
-                    </span>
-                    Gestión de base de datos
-                  </li>
-                  <li class="flex gap-3">
-                    <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-slate-900/5 text-slate-900 dark:bg-white/10 dark:text-white">
-                      <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <path d="M9 12.5 11 14.5 15.5 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                      </svg>
-                    </span>
-                    Soporte técnico
-                  </li>
-                </ul>
-
-                <div class="mt-6">
-                  <h4 class="text-sm font-semibold text-slate-900 dark:text-white">Impacto</h4>
-                  <div class="mt-3 rounded-2xl border border-brand-500/30 bg-gradient-to-br from-brand-500/10 to-brand-500/5 p-4">
-                    <div class="mb-3 inline-flex rounded-lg border border-brand-500/30 bg-brand-500/10 px-2.5 py-1 text-xs font-semibold text-brand-700 dark:text-brand-200">
-                      Caso de estudio SIISU
-                    </div>
-                    <ul class="space-y-2 text-sm text-slate-700 dark:text-slate-300">
-                      <li class="flex gap-2">
-                        <span class="mt-1 inline-flex h-2 w-2 rounded-full bg-brand-500"></span>
-                        Automatización de generación de cuentas institucionales
-                      </li>
-                      <li class="flex gap-2">
-                        <span class="mt-1 inline-flex h-2 w-2 rounded-full bg-brand-500"></span>
-                        Reducción de errores mediante integración con RENAPO
-                      </li>
-                      <li class="flex gap-2">
-                        <span class="mt-1 inline-flex h-2 w-2 rounded-full bg-brand-500"></span>
-                        Optimización de carga de calificaciones con importación masiva
-                      </li>
-                      <li class="flex gap-2">
-                        <span class="mt-1 inline-flex h-2 w-2 rounded-full bg-brand-500"></span>
-                        Centralización de múltiples procesos institucionales
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div class="mt-6 flex flex-wrap gap-2">
-                  <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">Laravel</span>
-                  <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">APIs REST</span>
-                  <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">Linux</span>
-                  <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">Bases de datos</span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -920,13 +751,468 @@
         </div>
       </section>
 
+      <!-- PROYECTO DESTACADO -->
+      <section id="proyecto" class="py-16 sm:py-20">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+          <div class="reveal">
+            <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Proyecto destacado</h2>
+            <p class="mt-3 max-w-2xl text-slate-700 dark:text-slate-300">
+              Un caso real donde combiné desarrollo, administración e integraciones para operar de forma estable.
+            </p>
+          </div>
+
+          <div class="mt-8 grid gap-6 lg:grid-cols-12">
+            <div class="min-w-0 lg:col-span-7 reveal">
+              <div class="rounded-3xl border border-slate-200/70 bg-white/70 p-4 transition duration-300 hover:-translate-y-1 hover:border-brand-500/40 hover:shadow-brand dark:border-slate-800/70 dark:bg-slate-900/30 sm:p-7">
+                <div class="flex min-w-0 flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                  <div class="min-w-0">
+                    <div class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">
+                      <svg class="h-4 w-4 text-brand-500" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M12 2v4M12 18v4M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                      </svg>
+                      Caso SIISU
+                    </div>
+                      <h3 class="mt-4 text-lg font-bold tracking-tight sm:text-xl">Sistema Integral Institucional de Servicios Universitarios (SIISU)</h3>
+                    <p class="mt-3 text-slate-700 dark:text-slate-300">
+                      Sistema web que centraliza la gestión académica, administrativa y financiera de una universidad.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Capturas - Temporalmente desactivadas debido a que hace falta elegir mejores capturas. -->
+                 <!-- 
+                <div class="mt-5">
+                  <div class="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+                    <h4 class="text-sm font-semibold text-slate-900 dark:text-white">Capturas</h4>
+                    <div class="flex w-full items-center justify-between gap-2 sm:w-auto sm:justify-start">
+                      <span class="text-xs text-slate-500 dark:text-slate-400">Desliza o usa flechas</span>
+                      <button
+                        type="button"
+                        class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200/70 bg-white/70 text-slate-700 transition hover:border-brand-400/40 hover:text-brand-600 dark:border-slate-800/70 dark:bg-slate-900/40 dark:text-slate-200"
+                        data-gallery-prev="siisu-gallery"
+                        aria-label="Captura anterior"
+                      >
+                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M15 18 9 12l6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </button>
+                      <button
+                        type="button"
+                        class="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200/70 bg-white/70 text-slate-700 transition hover:border-brand-400/40 hover:text-brand-600 dark:border-slate-800/70 dark:bg-slate-900/40 dark:text-slate-200"
+                        data-gallery-next="siisu-gallery"
+                        aria-label="Siguiente captura"
+                      >
+                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="m9 18 6-6-6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div
+                    class="mt-3 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                    id="siisu-gallery"
+                  >
+                    <a
+                      href="./assets/img/siisu/siisu-1.png"
+                      class="group w-[88%] shrink-0 snap-start overflow-hidden rounded-xl border border-slate-200/70 bg-white/60 transition hover:border-brand-400/40 sm:w-[48%] lg:w-[32%]"
+                      data-pswp-width="2553"
+                      data-pswp-height="1291"
+                      data-cropped="true"
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="Ver captura 1"
+                    >
+                      <img
+                        src="./assets/img/siisu/siisu-1.png"
+                        alt="SIISU - Vista principal"
+                        class="h-auto w-full object-cover"
+                        loading="lazy"
+                      />
+                      <span class="sr-only">Abrir captura 1</span>
+                    </a>
+                    <a
+                      href="./assets/img/siisu/siisu-2.png"
+                      class="group w-[88%] shrink-0 snap-start overflow-hidden rounded-xl border border-slate-200/70 bg-white/60 transition hover:border-brand-400/40 sm:w-[48%] lg:w-[32%]"
+                      data-pswp-width="2558"
+                      data-pswp-height="1047"
+                      data-cropped="true"
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="Ver captura 2"
+                    >
+                      <img
+                        src="./assets/img/siisu/siisu-2.png"
+                        alt="SIISU - Gestión de alumnos"
+                        class="h-auto w-full object-cover"
+                        loading="lazy"
+                      />
+                      <span class="sr-only">Abrir captura 2</span>
+                    </a>
+                    <a
+                      href="./assets/img/siisu/siisu-3.png"
+                      class="group w-[88%] shrink-0 snap-start overflow-hidden rounded-xl border border-slate-200/70 bg-white/60 transition hover:border-brand-400/40 sm:w-[48%] lg:w-[32%]"
+                      data-pswp-width="2542"
+                      data-pswp-height="1301"
+                      data-cropped="true"
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="Ver captura 3"
+                    >
+                      <img
+                        src="./assets/img/siisu/siisu-3.png"
+                        alt="SIISU - Reportes y métricas"
+                        class="h-auto w-full object-cover"
+                        loading="lazy"
+                      />
+                      <span class="sr-only">Abrir captura 3</span>
+                    </a>
+                    <a
+                      href="./assets/img/siisu/siisu-4.png"
+                      class="group w-[88%] shrink-0 snap-start overflow-hidden rounded-xl border border-slate-200/70 bg-white/60 transition hover:border-brand-400/40 sm:w-[48%] lg:w-[32%]"
+                      data-pswp-width="2541"
+                      data-pswp-height="1301"
+                      data-cropped="true"
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="Ver captura 4"
+                    >
+                      <img
+                        src="./assets/img/siisu/siisu-4.png"
+                        alt="SIISU - Operación administrativa"
+                        class="h-auto w-full object-cover"
+                        loading="lazy"
+                      />
+                      <span class="sr-only">Abrir captura 4</span>
+                    </a>
+                    <a
+                      href="./assets/img/siisu/siisu-5.png"
+                      class="group w-[88%] shrink-0 snap-start overflow-hidden rounded-xl border border-slate-200/70 bg-white/60 transition hover:border-brand-400/40 sm:w-[48%] lg:w-[32%]"
+                      data-pswp-width="2541"
+                      data-pswp-height="861"
+                      data-cropped="true"
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="Ver captura 5"
+                    >
+                      <img
+                        src="./assets/img/siisu/siisu-5.png"
+                        alt="SIISU - Módulo operativo"
+                        class="h-auto w-full object-cover"
+                        loading="lazy"
+                      />
+                      <span class="sr-only">Abrir captura 5</span>
+                    </a>
+                    <a
+                      href="./assets/img/siisu/siisu-6.png"
+                      class="group w-[88%] shrink-0 snap-start overflow-hidden rounded-xl border border-slate-200/70 bg-white/60 transition hover:border-brand-400/40 sm:w-[48%] lg:w-[32%]"
+                      data-pswp-width="2540"
+                      data-pswp-height="1050"
+                      data-cropped="true"
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="Ver captura 6"
+                    >
+                      <img
+                        src="./assets/img/siisu/siisu-6.png"
+                        alt="SIISU - Flujo institucional"
+                        class="h-auto w-full object-cover"
+                        loading="lazy"
+                      />
+                      <span class="sr-only">Abrir captura 6</span>
+                    </a>
+                  </div>
+
+                  <p class="mt-3 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+                    Las interfaces mostradas son representaciones del sistema real.
+                    Los datos han sido anonimizados por motivos de confidencialidad.
+                  </p>
+                </div>
+              -->
+
+                <div class="mt-6">
+                  <h4 class="text-sm font-semibold text-slate-900 dark:text-white">Características</h4>
+                  <ul class="mt-3 space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                    <li class="flex gap-3">
+                      <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      Gestión completa del alumno (aspirante a egresado)
+                    </li>
+                    <li class="flex gap-3">
+                      <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      Automatización de cuentas institucionales
+                    </li>
+                    <li class="flex gap-3">
+                      <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      Control escolar y académico
+                    </li>
+                    <li class="flex gap-3">
+                      <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      Gestión de empleados (RH)
+                    </li>
+                    <li class="flex gap-3">
+                      <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      Integración con servicios externos (RENAPO, Secretaría de Finanzas)
+                    </li>
+                    <li class="flex gap-3">
+                      <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      Generación de fichas de pago
+                    </li>
+                    <li class="flex gap-3">
+                      <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      Carga masiva de calificaciones por Excel
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="min-w-0 lg:col-span-5 reveal">
+              <div class="rounded-3xl border border-slate-200/70 bg-white/60 p-4 transition duration-300 hover:-translate-y-1 hover:border-brand-500/40 hover:shadow-brand dark:border-slate-800/70 dark:bg-slate-900/30 sm:p-7">
+                <h4 class="text-sm font-semibold text-slate-900 dark:text-white">Rol</h4>
+                <ul class="mt-3 space-y-3 text-sm text-slate-700 dark:text-slate-300">
+                  <li class="flex gap-3">
+                    <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-slate-900/5 text-slate-900 dark:bg-white/10 dark:text-white">
+                      <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M9 12.5 11 14.5 15.5 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                    Desarrollo full stack
+                  </li>
+                  <li class="flex gap-3">
+                    <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-slate-900/5 text-slate-900 dark:bg-white/10 dark:text-white">
+                      <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M9 12.5 11 14.5 15.5 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                    Administración de servidores
+                  </li>
+                  <li class="flex gap-3">
+                    <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-slate-900/5 text-slate-900 dark:bg-white/10 dark:text-white">
+                      <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M9 12.5 11 14.5 15.5 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                    Gestión de base de datos
+                  </li>
+                  <li class="flex gap-3">
+                    <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-slate-900/5 text-slate-900 dark:bg-white/10 dark:text-white">
+                      <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M9 12.5 11 14.5 15.5 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                    Soporte de uso y resolución de incidencias del sistema
+                  </li>
+                </ul>
+
+                <div class="mt-6">
+                  <h4 class="text-sm font-semibold text-slate-900 dark:text-white">Impacto</h4>
+                  <div class="mt-3 rounded-2xl border border-brand-500/30 bg-gradient-to-br from-brand-500/10 to-brand-500/5 p-4">
+                    <div class="mb-3 inline-flex rounded-lg border border-brand-500/30 bg-brand-500/10 px-2.5 py-1 text-xs font-semibold text-brand-700 dark:text-brand-200">
+                      Caso de estudio SIISU
+                    </div>
+                    <ul class="space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                      <li class="flex gap-2">
+                        <span class="mt-1 inline-flex h-2 w-2 rounded-full bg-brand-500"></span>
+                        Automatización de generación de cuentas institucionales
+                      </li>
+                      <li class="flex gap-2">
+                        <span class="mt-1 inline-flex h-2 w-2 rounded-full bg-brand-500"></span>
+                        Reducción de errores de captura de datos mediante integración con RENAPO
+                      </li>
+                      <li class="flex gap-2">
+                        <span class="mt-1 inline-flex h-2 w-2 rounded-full bg-brand-500"></span>
+                        Optimización de carga de calificaciones con importación masiva
+                      </li>
+                      <li class="flex gap-2">
+                        <span class="mt-1 inline-flex h-2 w-2 rounded-full bg-brand-500"></span>
+                        Centralización de múltiples procesos institucionales
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="mt-6 flex flex-wrap gap-2">
+                  <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">Laravel</span>
+                  <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">APIs REST</span>
+                  <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">Linux</span>
+                  <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">Bases de datos</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 grid gap-6 lg:grid-cols-12">
+            <div class="min-w-0 lg:col-span-7 reveal">
+              <div class="rounded-3xl border border-slate-200/70 bg-white/70 p-4 transition duration-300 hover:-translate-y-1 hover:border-brand-500/40 hover:shadow-brand dark:border-slate-800/70 dark:bg-slate-900/30 sm:p-7">
+                <div class="flex min-w-0 flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                  <div class="min-w-0">
+                    <div class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">
+                      <svg class="h-4 w-4 text-brand-500" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M7 7h10v10H7V7Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M4 12h3M17 12h3M12 4v3M12 17v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                      </svg>
+                      Proyecto freelance
+                    </div>
+                    <h3 class="mt-4 text-lg font-bold tracking-tight sm:text-xl">Sistema de gestión para lavandería y tienda</h3>
+                    <p class="mt-3 text-slate-700 dark:text-slate-300">
+                    Proyecto freelance para un negocio de lavandería y tienda. Combina punto de venta para tienda con una lógica especializada
+                    para servicios de lavandería, control de insumos por consumo real y seguimiento del mantenimiento de equipos.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="mt-6">
+                  <h4 class="text-sm font-semibold text-slate-900 dark:text-white">Características</h4>
+                  <ul class="mt-3 space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                    <li class="flex gap-3">
+                      <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      Punto de venta para tienda con operación diaria y registro de ventas.
+                    </li>
+                    <li class="flex gap-3">
+                      <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      Descuento automático de insumos de lavado por servicio según medidas reales de consumo.
+                    </li>
+                    <li class="flex gap-3">
+                      <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      Inventario orientado a volumen: compra por litros y salida por mililitros o medidas por servicio.
+                    </li>
+                    <li class="flex gap-3">
+                      <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                        <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      Envío diario de correos con información del cierre operativo para el dueño.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="min-w-0 lg:col-span-5 reveal">
+              <div class="rounded-3xl border border-slate-200/70 bg-white/60 p-4 transition duration-300 hover:-translate-y-1 hover:border-brand-500/40 hover:shadow-brand dark:border-slate-800/70 dark:bg-slate-900/30 sm:p-7">
+                <h4 class="text-sm font-semibold text-slate-900 dark:text-white">Rol</h4>
+                <ul class="mt-3 space-y-3 text-sm text-slate-700 dark:text-slate-300">
+                  <li class="flex gap-3">
+                    <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-slate-900/5 text-slate-900 dark:bg-white/10 dark:text-white">
+                      <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M9 12.5 11 14.5 15.5 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                    Desarrollo full stack
+                  </li>
+                  <li class="flex gap-3">
+                    <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-slate-900/5 text-slate-900 dark:bg-white/10 dark:text-white">
+                      <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M9 12.5 11 14.5 15.5 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                    Modelado de inventario y lógica de consumo por servicio
+                  </li>
+                  <li class="flex gap-3">
+                    <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-slate-900/5 text-slate-900 dark:bg-white/10 dark:text-white">
+                      <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M9 12.5 11 14.5 15.5 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                    Despliegue y operación en servidor Linux
+                  </li>
+                  <li class="flex gap-3">
+                    <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-slate-900/5 text-slate-900 dark:bg-white/10 dark:text-white">
+                      <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M9 12.5 11 14.5 15.5 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                    Automatización de reportes diarios por correo
+                  </li>
+                </ul>
+
+                <div class="mt-6">
+                  <h4 class="text-sm font-semibold text-slate-900 dark:text-white">Impacto</h4>
+                  <div class="mt-3 rounded-2xl border border-brand-500/30 bg-gradient-to-br from-brand-500/10 to-brand-500/5 p-4">
+                    <div class="mb-3 inline-flex rounded-lg border border-brand-500/30 bg-brand-500/10 px-2.5 py-1 text-xs font-semibold text-brand-700 dark:text-brand-200">
+                      Implementación freelance
+                    </div>
+                    <ul class="space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                      <li class="flex gap-2">
+                        <span class="mt-1 inline-flex h-2 w-2 rounded-full bg-brand-500"></span>
+                        Control real del consumo de insumos por servicio de lavado.
+                      </li>
+                      <li class="flex gap-2">
+                        <span class="mt-1 inline-flex h-2 w-2 rounded-full bg-brand-500"></span>
+                        Seguimiento del mantenimiento preventivo por ciclos de uso.
+                      </li>
+                      <li class="flex gap-2">
+                        <span class="mt-1 inline-flex h-2 w-2 rounded-full bg-brand-500"></span>
+                        Historial de piezas y costos por equipo para mejor control operativo.
+                      </li>
+                      <li class="flex gap-2">
+                        <span class="mt-1 inline-flex h-2 w-2 rounded-full bg-brand-500"></span>
+                        Cierre diario automatizado enviado por correo al propietario.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="mt-6 flex flex-wrap gap-2">
+                  <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">Laravel 11</span>
+                  <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">PostgreSQL</span>
+                  <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">Linux</span>
+                  <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">Inventario por consumo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- EXPERIENCIA -->
       <section id="experiencia" class="py-16 sm:py-20">
         <div class="mx-auto max-w-6xl px-4 sm:px-6">
           <div class="reveal">
             <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Experiencia</h2>
             <p class="mt-3 max-w-2xl text-slate-700 dark:text-slate-300">
-              Historia enfocada en trabajo real: decisiones técnicas, mantenimiento y operaciones.
+              Experiencia en entorno productivo: decisiones técnicas, mantenimiento y operación diaria.
             </p>
           </div>
 
@@ -944,25 +1230,29 @@
                         </svg>
                       </span>
                       <div>
-                        <h3 class="text-lg font-bold">Universidad Politecnica de Victoria</h3>
-                        <p class="text-sm text-slate-600 dark:text-slate-400">Desarrollo y mantenimiento de sistema institucional</p>
+                        <h3 class="text-lg font-bold">Universidad Politécnica de Victoria</h3>
+                        <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                          <span class="block">Soporte, desarrollo y despliegue del</span>
+                          <span class="block font-semibold text-slate-700 dark:text-slate-300">Sistema Integral Institucional de Servicios Universitarios (SIISU)</span>
+                          <span class="block">Nov 2021 - Presente</span>
+                        </p>
                       </div>
                     </div>
                   </div>
 
                   <div class="rounded-2xl border border-slate-200 bg-white/70 px-4 py-3 text-sm font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">
-                    Rol: Backend & Arquitectura
+                    Rol: Backend & Arquitectura · Producción
                   </div>
                 </div>
 
-                <ul class="mt-6 grid gap-3 md:grid-cols-2">
+                <ul class="mt-5 grid gap-3 md:grid-cols-2">
                   <li class="flex gap-3 rounded-2xl bg-white/60 p-4 border border-slate-200/70 dark:bg-slate-950/20 dark:border-slate-800/70">
                     <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
                       <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                         <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
                       </svg>
                     </span>
-                    Desarrollo y mantenimiento de sistema institucional
+                    Evolución del rol: de asistente a responsable técnico
                   </li>
                   <li class="flex gap-3 rounded-2xl bg-white/60 p-4 border border-slate-200/70 dark:bg-slate-950/20 dark:border-slate-800/70">
                     <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
@@ -970,7 +1260,7 @@
                         <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
                       </svg>
                     </span>
-                    Participación en decisiones técnicas
+                    Producción: despliegues, monitoreo y validación end-to-end
                   </li>
                   <li class="flex gap-3 rounded-2xl bg-white/60 p-4 border border-slate-200/70 dark:bg-slate-950/20 dark:border-slate-800/70">
                     <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
@@ -978,7 +1268,7 @@
                         <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
                       </svg>
                     </span>
-                    Gestión de servidores y producción
+                    Base de datos y capacidad: SQL Server, respaldos y rendimiento
                   </li>
                   <li class="flex gap-3 rounded-2xl bg-white/60 p-4 border border-slate-200/70 dark:bg-slate-950/20 dark:border-slate-800/70">
                     <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-lg bg-brand-500/15 text-brand-600 dark:text-brand-300">
@@ -986,11 +1276,61 @@
                         <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
                       </svg>
                     </span>
-                    Resolución de incidencias y soporte técnico
+                    Caso SIISU: soporte transversal + coordinación directiva (GLPI/Plane)
                   </li>
                 </ul>
+
+                <div class="mt-5 flex flex-wrap gap-2">
+                  <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">PHP</span>
+                  <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">Laravel</span>
+                  <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">SQL Server</span>
+                  <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">GLPI (Tickets)</span>
+                  <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">Plane (Tareas)</span>
+                  <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">Cursor (IA)</span>
+                </div>
               </div>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- FORMACIÓN -->
+      <section id="formacion" class="py-16 sm:py-20 bg-slate-50/50 dark:bg-slate-900/20">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+          <div class="reveal">
+            <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Formación</h2>
+            <p class="mt-3 max-w-2xl text-slate-700 dark:text-slate-300">
+              Formación en ingeniería con aplicación práctica en proyectos y sistemas reales.
+            </p>
+          </div>
+
+          <div class="mt-8 grid gap-4 lg:grid-cols-12">
+            <div class="reveal lg:col-span-12">
+              <div class="rounded-3xl border border-slate-200/70 bg-white/70 p-7 dark:border-slate-800/70 dark:bg-slate-900/30">
+                <div class="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
+                  <div class="min-w-0">
+                    <div class="flex items-center gap-3">
+                      <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-600 dark:text-brand-300">
+                        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path d="M12 2 2 7l10 5 10-5-10-5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                          <path d="M6 10v7c0 1 2 3 6 3s6-2 6-3v-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </span>
+                      <div class="min-w-0">
+                        <h3 class="text-lg font-bold">Universidad Politécnica de Victoria</h3>
+                        <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">
+                          Ingeniería en Tecnologías de la Información (2016 - 2021)
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="rounded-2xl border border-slate-200 bg-white/70 px-4 py-3 text-sm font-semibold text-slate-800 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">
+                    Énfasis en aplicación práctica
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -998,54 +1338,54 @@
       <!-- CONTACTO -->
       <section id="contacto" class="py-16 sm:py-20 bg-slate-950 text-slate-100 relative overflow-hidden">
         <div class="absolute inset-0 -z-10">
-          <div class="absolute -top-48 left-1/2 h-[520px] w-[900px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-brand-500/25 via-cyan-400/15 to-transparent blur-2xl"></div>
+          <div class="absolute -top-48 left-1/2 h-[360px] w-[520px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-brand-500/25 via-cyan-400/15 to-transparent blur-2xl sm:h-[520px] sm:w-[900px]"></div>
           <div class="absolute top-20 -left-20 h-72 w-72 rounded-full bg-brand-500/10 blur-2xl"></div>
           <div class="absolute bottom-0 -right-20 h-72 w-72 rounded-full bg-cyan-400/10 blur-2xl"></div>
         </div>
 
-        <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <div class="mx-auto w-full min-w-0 max-w-6xl px-4 sm:px-6">
           <div class="reveal">
             <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Contacto</h2>
             <p class="mt-3 max-w-2xl text-slate-300">
-              Si buscas un desarrollador enfocado en sistemas web, automatización y producción: conectemos.
+              Estoy disponible para consultas sobre desarrollo backend, integraciones o automatización. A continuación, los datos de contacto.
             </p>
           </div>
 
-          <div class="mt-8 grid gap-4 lg:grid-cols-12">
-            <div class="reveal lg:col-span-7">
-              <div class="rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur">
-                <div class="flex items-center justify-between gap-4">
-                  <div>
+          <div class="contact-canales-grid mt-8 grid min-w-0 w-full gap-4 lg:grid-cols-12">
+            <div class="reveal min-w-0 lg:col-span-7">
+              <div class="contact-canales-card min-w-0 max-w-full rounded-3xl border border-white/10 bg-white/5 p-4 backdrop-blur sm:p-7">
+                <div class="contact-canales-header flex min-w-0 flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-4">
+                  <div class="min-w-0">
                     <div class="text-sm font-semibold text-white">Canales</div>
-                    <div class="mt-1 text-sm text-slate-300">Canales de contacto profesional</div>
+                    <div class="mt-1 text-sm text-slate-300">Copiar dato o abrir enlace</div>
                   </div>
-                  <span class="inline-flex items-center rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold text-slate-200">
+                  <span class="contact-canales-badge inline-flex w-fit shrink-0 items-center rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold text-slate-200">
                     Respuesta rápida
                   </span>
                 </div>
 
-                <div class="mt-6 grid gap-3 sm:grid-cols-1">
+                <div class="mt-6 min-w-0 grid gap-3 sm:grid-cols-1">
                   <a
                     href="mailto:yashubge@gmail.com"
-                    class="group inline-flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 transition hover:border-brand-400/50 hover:bg-white/10"
+                    class="group flex min-w-0 flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-4 transition hover:border-brand-400/50 hover:bg-white/10 sm:flex-row sm:items-center sm:justify-between sm:px-5"
                     title="Enviar correo"
                     data-copy="yashubge@gmail.com"
                   >
-                    <span class="flex items-center gap-3">
-                      <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-300">
+                    <span class="flex min-w-0 flex-1 items-start gap-3 sm:items-center">
+                      <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-300">
                         <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                           <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
                           <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                       </span>
-                      <span class="text-sm">
+                      <span class="min-w-0 text-sm">
                         <span class="block font-semibold text-white">Email</span>
-                        <span class="block font-mono text-slate-300 text-xs">
+                        <span class="block break-words font-mono text-xs text-slate-300">
                           yashubge@gmail.com
                         </span>
                       </span>
                     </span>
-                    <span class="flex items-center gap-3">
+                    <span class="flex shrink-0 items-center justify-end gap-2 sm:gap-3">
                       <button
                         type="button"
                         data-copy-btn
@@ -1066,12 +1406,12 @@
                     href="https://github.com/yguzmane"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="group inline-flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 transition hover:border-brand-400/50 hover:bg-white/10"
+                    class="group flex min-w-0 flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-4 transition hover:border-brand-400/50 hover:bg-white/10 sm:flex-row sm:items-center sm:justify-between sm:px-5"
                     title="Abrir GitHub"
                     data-copy="https://github.com/yguzmane"
                   >
-                    <span class="flex items-center gap-3">
-                      <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-300">
+                    <span class="flex min-w-0 flex-1 items-start gap-3 sm:items-center">
+                      <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-300">
                         <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                           <path d="M9 19c-5 1.5-5-2.5-7-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
                           <path
@@ -1083,12 +1423,12 @@
                           />
                         </svg>
                       </span>
-                      <span class="text-sm">
+                      <span class="min-w-0 text-sm">
                         <span class="block font-semibold text-white">GitHub</span>
-                        <span class="block font-mono text-slate-300 text-xs">@yguzmane</span>
+                        <span class="block break-words font-mono text-xs text-slate-300">@yguzmane</span>
                       </span>
                     </span>
-                    <span class="flex items-center gap-3">
+                    <span class="flex shrink-0 items-center justify-end gap-2 sm:gap-3">
                       <button
                         type="button"
                         data-copy-btn
@@ -1109,12 +1449,12 @@
                     href="https://www.linkedin.com/in/yashub-armando-guzm%C3%A1n-espinoza-12260719a/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="group inline-flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 transition hover:border-brand-400/50 hover:bg-white/10"
+                    class="group flex min-w-0 flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-4 transition hover:border-brand-400/50 hover:bg-white/10 sm:flex-row sm:items-center sm:justify-between sm:px-5"
                     title="Abrir LinkedIn"
                     data-copy="https://www.linkedin.com/in/yashub-armando-guzm%C3%A1n-espinoza-12260719a/"
                   >
-                    <span class="flex items-center gap-3">
-                      <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-300">
+                    <span class="flex min-w-0 flex-1 items-start gap-3 sm:items-center">
+                      <span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-brand-500/15 text-brand-300">
                         <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                           <path d="M4 4h16v16H4V4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
                           <path d="M8 11v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
@@ -1122,12 +1462,12 @@
                           <path d="M12 17v-3.2c0-1.2.8-2.1 2-2.1 1.2 0 2 .9 2 2.1V17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                       </span>
-                      <span class="text-sm">
+                      <span class="min-w-0 text-sm">
                         <span class="block font-semibold text-white">LinkedIn</span>
-                        <span class="block font-mono text-slate-300 text-xs">yashub-armando</span>
+                        <span class="block break-words font-mono text-xs text-slate-300">yashub-armando</span>
                       </span>
                     </span>
-                    <span class="flex items-center gap-3">
+                    <span class="flex shrink-0 items-center justify-end gap-2 sm:gap-3">
                       <button
                         type="button"
                         data-copy-btn
@@ -1147,12 +1487,12 @@
               </div>
             </div>
 
-            <div class="reveal lg:col-span-5">
-              <div class="rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur">
+            <div class="reveal min-w-0 lg:col-span-5">
+              <div class="min-w-0 max-w-full rounded-3xl border border-white/10 bg-white/5 p-4 backdrop-blur sm:p-7">
                 <div class="flex items-center justify-between gap-4">
                   <div>
                     <div class="text-sm font-semibold text-white">Resumen</div>
-                    <div class="mt-1 text-sm text-slate-300">Lo que aporto al equipo</div>
+                    <div class="mt-1 text-sm text-slate-300">Competencias principales</div>
                   </div>
                   <span class="inline-flex items-center rounded-2xl bg-brand-500/20 px-3 py-2 text-xs font-semibold text-brand-200">
                     Web Systems
@@ -1161,15 +1501,15 @@
 
                 <div class="mt-5 space-y-3">
                   <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                    <div class="text-sm font-semibold text-white">Entrega lista para producción</div>
+                    <div class="text-sm font-semibold text-white">Entregas listas para producción</div>
                     <p class="mt-1 text-sm text-slate-300">
-                      Despliegues, monitoreo, bases de datos y soporte técnico.
+                      Despliegues, monitoreo, bases de datos y seguimiento posterior al despliegue.
                     </p>
                   </div>
                   <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                    <div class="text-sm font-semibold text-white">Automatización con resultados</div>
+                    <div class="text-sm font-semibold text-white">Automatización de procesos</div>
                     <p class="mt-1 text-sm text-slate-300">
-                      Procesos que reducen tiempo operativo y errores manuales.
+                      Procesos orientados a reducir tiempos y errores manuales.
                     </p>
                   </div>
                   <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
@@ -1364,6 +1704,36 @@
           });
         });
 
+        // Carruseles horizontales de miniaturas
+        const bindGalleryScroller = (galleryId) => {
+          const track = document.getElementById(galleryId);
+          if (!track) return;
+
+          const prev = document.querySelector(`[data-gallery-prev="${galleryId}"]`);
+          const next = document.querySelector(`[data-gallery-next="${galleryId}"]`);
+
+          const getStep = () => {
+            const firstSlide = track.querySelector("a");
+            if (!firstSlide) return Math.max(track.clientWidth * 0.85, 280);
+
+            const styles = window.getComputedStyle(track);
+            const gap = parseFloat(styles.columnGap || styles.gap || "0");
+            return firstSlide.getBoundingClientRect().width + gap;
+          };
+
+          const scrollByStep = (direction) => {
+            track.scrollBy({
+              left: getStep() * direction,
+              behavior: reduceMotion ? "auto" : "smooth",
+            });
+          };
+
+          if (prev) prev.addEventListener("click", () => scrollByStep(-1));
+          if (next) next.addEventListener("click", () => scrollByStep(1));
+        };
+
+        bindGalleryScroller("siisu-gallery");
+
         // Reveal animations
         const revealEls = Array.from(document.querySelectorAll(".reveal"));
         if (revealEls.length) {
@@ -1393,5 +1763,85 @@
         }
       })();
     </script>
+
+    <script type="module">
+      import PhotoSwipeLightbox from "https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js";
+
+      const siisuGallery = document.getElementById("siisu-gallery");
+      if (siisuGallery) {
+        const lightbox = new PhotoSwipeLightbox({
+          gallery: "#siisu-gallery",
+          children: "a",
+          pswpModule: () => import("https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.esm.min.js"),
+          showHideAnimationType: "zoom",
+          wheelToZoom: true,
+          paddingFn: () => ({ top: 24, bottom: 24, left: 24, right: 24 }),
+        });
+
+        lightbox.init();
+      }
+    </script>
+
+    <!-- Contacto móvil: al final del body; min-width:auto en ítems flex hacía el ancho mínimo = email entero -->
+    <style>
+      html body #contacto > .mx-auto {
+        min-width: 0;
+        width: 100%;
+      }
+      html body #contacto .contact-canales-grid {
+        min-width: 0;
+        width: 100%;
+      }
+      html body #contacto .contact-canales-card {
+        box-sizing: border-box;
+        min-width: 0;
+        max-width: 100%;
+      }
+      html body #contacto a[data-copy] {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0.75rem;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+      }
+      @media (min-width: 640px) {
+        html body #contacto a[data-copy] {
+          flex-direction: row !important;
+          align-items: center !important;
+          justify-content: space-between !important;
+        }
+      }
+      html body #contacto a[data-copy] > span:first-child {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+      html body #contacto a[data-copy] > span:first-child > .min-w-0.text-sm {
+        flex: 1 1 0 !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+      }
+      html body #contacto a[data-copy] .text-sm .font-mono {
+        display: block !important;
+        white-space: normal !important;
+        word-break: break-all !important;
+        overflow-wrap: anywhere !important;
+        max-width: 100% !important;
+      }
+      @media (max-width: 639px) {
+        html body #contacto a[data-copy] > span:last-child {
+          width: 100% !important;
+          max-width: 100% !important;
+          box-sizing: border-box !important;
+          justify-content: space-between !important;
+        }
+      }
+    </style>
   </body>
 </html>
